@@ -1,14 +1,11 @@
-CC=gcc
-SRC=main.c
-BIN=$(SRC:.c=)
+CC   := gcc
+ROOT := .
+
+DIR  := .
+include $(DIR)/test/Makefile
 
 .PHONY: test
-test: $(BIN)
-	./$<
-
-$(BIN): $(SRC)
-	$(CC) -o $@ $^
+test: $(TEST)
 
 .PHONY: clean
-clean:
-	rm -f $(BIN)
+clean: $(CLEAN)
