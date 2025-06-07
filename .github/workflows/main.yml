@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false # Don't fail the whole workflow if one test fails
-    matrix:
-      test_target: ${{ fromJson(needs.generate_test_list.outputs.test_targets) }}
+      matrix:
+        test_target: ${{ fromJson(needs.generate_test_list.outputs.test_targets) }}
 
     steps:
     - uses: actions/checkout@v4
