@@ -4,4 +4,5 @@
 
 int main() {
   printf("Hello from test2!\n");
+  printf("Just another print!\n")
 }
