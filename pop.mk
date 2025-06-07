@@ -1,2 +1,3 @@
-DIR := $(dir $(DIR))
+DIR := $(DIRSTACK_$(SP))
+SP  := $(basename $(SP))
 

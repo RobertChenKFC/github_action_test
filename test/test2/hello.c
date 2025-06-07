@@ -3,5 +3,5 @@
 #include <assert.h>
 
 int main() {
-  printf("Hello from test2!\n")
+  printf("Hello from test2!\n");
 }
