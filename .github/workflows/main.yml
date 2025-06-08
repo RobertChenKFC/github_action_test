@@ -22,7 +22,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: Dockerfile
+      image: robertchenkfc/fartlang
 
     strategy:
       fail-fast: false
