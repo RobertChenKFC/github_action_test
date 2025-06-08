@@ -2,9 +2,7 @@ SP             := $(SP).x
 DIRSTACK_$(SP) := $(DIR)
 DIR            := $(DIR)/test
 
-include $(DIR)/test1/Makefile
-include $(DIR)/test2/Makefile
-include $(DIR)/test4/Makefile
+include $(wildcard $(DIR)/*/Makefile)
 
 DIR            := $(DIRSTACK_$(SP))
 SP             := $(basename $(SP))

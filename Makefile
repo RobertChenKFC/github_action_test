@@ -1,5 +1,4 @@
-CC   := gcc
-ROOT := .
+include defs.mk
 
 DIR  := .
 include $(DIR)/test/Makefile

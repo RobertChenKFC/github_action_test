@@ -21,6 +21,9 @@ jobs:
     needs: gen_test_targets
 
     runs-on: ubuntu-latest
+    container:
+      image: robertchenkfc/fartlang
+
     strategy:
       fail-fast: false
       matrix:
