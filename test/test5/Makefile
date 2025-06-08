@@ -5,6 +5,6 @@ include $(ROOT)/c.mk
 .PHONY: $(DIR).test
 TEST := $(TEST) $(DIR).test
 $(DIR).test: $(BIN)
-	valgrind ./$<
+	$(VALGRIND) ./$<
 
 include $(ROOT)/pop.mk
