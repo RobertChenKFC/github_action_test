@@ -1,11 +1,10 @@
-NAME := test2
+NAME := test3
 include $(ROOT)/push.mk
-include $(ROOT)/c.mk
 
+BIN := $(DIR)/run.py
 .PHONY: $(DIR).test
 TEST := $(TEST) $(DIR).test
 $(DIR).test: $(BIN)
 	./$<
 
-include $(DIR)/test3/Makefile
 include $(ROOT)/pop.mk

@@ -4,6 +4,7 @@ DIR            := $(DIR)/test
 
 include $(DIR)/test1/Makefile
 include $(DIR)/test2/Makefile
+include $(DIR)/test4/Makefile
 
 DIR            := $(DIRSTACK_$(SP))
 SP             := $(basename $(SP))

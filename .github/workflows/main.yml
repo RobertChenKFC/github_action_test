@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  generate_test_list:
+  gen_test_targets:
     runs-on: ubuntu-latest
     outputs:
       test_targets: ${{ steps.generate.outputs.targets }}
@@ -15,21 +15,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: Generate test targets
         id: generate
-        run: |
-          TEST_TARGETS='["test/test1.test", "test/test2.test"]'
-          echo "Generated test targets: $TEST_TARGETS"
-          echo "targets=$TEST_TARGETS" >> "$GITHUB_OUTPUT"
+        run: make test_targets
 
   test:
-    needs: generate_test_list
+    needs: gen_test_targets
 
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false # Don't fail the whole workflow if one test fails
+      fail-fast: false
       matrix:
-        test_target: ${{ fromJson(needs.generate_test_list.outputs.test_targets) }}
+        test_target: ${{ fromJson(needs.gen_test_targets.outputs.test_targets) }}
 
     steps:
     - uses: actions/checkout@v4
-    - name: make ${{ matrix.test_target }}
+    - name: Run test ${{ matrix.test_target }}
       run: make ${{ matrix.test_target }}
